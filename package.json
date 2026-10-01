@@ -1,0 +1,16 @@
+{
+  "name": "workers-vinext-typescript",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "overrides": { "fflate": "^0.8.2" },
+  "dependencies": { "react": "^19.2.0", "react-dom": "^19.2.0", "react-server-dom-webpack": "^19.2.0", "vinext": "1.0.0", "@vinext/cloudflare": "1.0.0" },
+  "devDependencies": { "@types/node": "^22.19.1", "@types/react": "^19.2.0", "@types/react-dom": "^19.2.0", "typescript": "^5.7.2", "vite": "^8.0.0", "@vitejs/plugin-react": "^5.1.4", "@vitejs/plugin-rsc": "latest", "@cloudflare/vite-plugin": "^1.55.0", "wrangler": "^4.145.0" },
+  "scripts": {
+    "dev": "vite dev",
+    "build": "vite build",
+    "check": "tsc --noEmit && npm run build",
+    "start": "wrangler dev --config dist/server/wrangler.json",
+    "deploy": "npm run build && vinext-cloudflare deploy --config dist/server/wrangler.json"
+  }
+}
